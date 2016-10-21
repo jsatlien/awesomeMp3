@@ -8,7 +8,7 @@ var SC_API = 'https://api.soundcloud.com'
 
 function renderHTML (data) {
     var newHTML = `
-        <div class='eachresult' data-streamurl="${data.stream}?client_id=${CLIENT_ID}" data-format="${data.format}">
+        <div class='eachresult' data-title="${data.title_artist}" data-streamurl="${data.stream}?client_id=${CLIENT_ID}" data-format="${data.format}">
           <img src="${data.album_art}" alt="image"/>
           <div id="title">${data.title_artist}</div>
           <div id="genre">${data.genre}</div>
@@ -43,12 +43,11 @@ function getResults (event) {
 $('#searchbutton').click(getResults);
 
 function renderPlayer (event) {
-        console.log(event);
-        console.log(event.currentTarget.dataset.streamurl)
     var audioHTML = `
     <audio controls="controls" >
     <source src="${event.currentTarget.dataset.streamurl}" type="audio/${event.currentTarget.dataset.format}">
     </audio>
+    <div>Now Playing: ${event.currentTarget.dataset.title}</div>
 `
     $(".player").html(audioHTML)
 }
@@ -68,6 +67,3 @@ function getTrackData (keyword) {
       }
   });
 };
-
-// console.log(getTrackData(results);
-//Audio template literal:
