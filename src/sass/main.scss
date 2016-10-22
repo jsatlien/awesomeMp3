@@ -2,26 +2,71 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(http://thephunion.com/wp-content/uploads/2013/04/Umphreys.jpg);
+  height: 1000px;
+}
+
 .maincontain {
-  height: 2000px;
-  border: 1px solid purple;
+  height: 1100px;
+  border: 1px solid #4B3C99;
   width: 80%;
   margin: auto auto;
   background: #FFF4D3;
+  position: relative;
+
 
 
   h1 {
     text-align: center;
-    font-family: 'Lily Script One', cursive;
-    border: 1px solid pink;
-    color: #985A0F;
+    font-family: 'Monoton', cursive;
+    font-size: 60px;
+    color: #FBA839;
+    display: inline-block;
+    border-bottom: 1px solid #4B3C99;
+    margin: 20px 10%;
+    font-weight: lighter;
   }
 
   .player {
-    border: 1px solid green;
+    background-color: white;
     height: 200px;
     margin: 30px auto;
     width: 50%;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    position: relative;
+    margin-bottom: 100px;
+    background-color: black;
+    padding-top: 3px;
+    border-radius: 10px;
+
+    #nowplaying {
+      font-family: 'Strait', sans-serif;
+      font-size: 18px;
+      margin: 10px auto;
+      text-align: center;
+      color: white;
+    }
+      img {
+        height: 500;
+        width: 500;
+        position: absolute;
+        top: 45px;
+        left: 40%;
+
+      }
+
+    audio {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
   }
 
   .searchbox {
@@ -48,23 +93,65 @@
       -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
       box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
       border-style: outset;
-      background-color: lightgreen;
+      background-color: #52DCF7;
       border: 3px solid white;
       font-family: 'Lily Script One';
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
+      color: white;
     }
   }
+
+  h2 {
+    font-family: 'Strait', sans-serif;
+    font-size: 17px;
+    padding-left: 8%;
+  }
+
   .searchresults {
-    width: 95%;
-    height: 1500px;
-    border-top: 1px solid black;
+    width: 90%;
+    height: 1000px;
     margin: 25px auto;
     padding: 25px;
     font-family: 'Strait', sans-serif;
+    position: absolute;
+    padding-left: 50px;
 
+
+    .eachresult:hover {
+      border-color: #5ADCF5;
+    }
+    .eachresult {
+      height: 160px;
+      width: 440px;
+      float: left;
+      margin: 10px;
+      padding-top: 10px;
+      padding-left: 10px;
+      background-color: #FEF7E4;
+      border: 3px solid #4B3C99;
+      border-radius: 10px;
+      #title {
+        margin-top: 3px;
+        margin-left: 10px;
+      }
+      #genre {
+        margin-left: 10px;
+
+      }
+      img {
+        border: 2px solid lightgrey;
+        border-radius: 10px;
+      }
+    }
   }
+    .overflow {
+      overflow: scroll;
+      height: 350px;
+      border-top: 1px solid #4B3C99;
+      width: 90%;
+      margin: 20px auto;
+      position: relative;
 
-
-
+    }
 }

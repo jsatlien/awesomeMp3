@@ -1,21 +1,9 @@
 import $ from 'jquery';
 
 import { CLIENT_ID } from './clientid';
+import { getTrackData } from './soundcloud';
+import { renderHTML, renderPlayer } from './template';
 
-
-var SC_API = 'https://api.soundcloud.com'
-
-
-function renderHTML (data) {
-    var newHTML = `
-        <div class='eachresult' data-title="${data.title_artist}" data-streamurl="${data.stream}?client_id=${CLIENT_ID}" data-format="${data.format}">
-          <img src="${data.album_art}" alt="image"/>
-          <div id="title">${data.title_artist}</div>
-          <div id="genre">${data.genre}</div>
-        </div>
-      `;
-    $('.searchresults').append(newHTML)
-}
 
 function resultData(myResults) {
     $('.searchresults').html("");
@@ -31,7 +19,7 @@ function resultData(myResults) {
     });
 
     $(".eachresult").click(renderPlayer);
-}
+};
 
 function getResults (event) {
   event.preventDefault()
@@ -41,29 +29,3 @@ function getResults (event) {
 };
 
 $('#searchbutton').click(getResults);
-
-function renderPlayer (event) {
-    var audioHTML = `
-    <audio controls="controls" >
-    <source src="${event.currentTarget.dataset.streamurl}" type="audio/${event.currentTarget.dataset.format}">
-    </audio>
-    <div>Now Playing: ${event.currentTarget.dataset.title}</div>
-`
-    $(".player").html(audioHTML)
-}
-
-
-$.ajaxSetup({
-    data: {
-      client_id: CLIENT_ID
-    }
-});
-
-function getTrackData (keyword) {
-  return $.ajax({
-      url: `${SC_API}/tracks/`,
-      data: {
-        q: `${keyword}`,
-      }
-  });
-};
